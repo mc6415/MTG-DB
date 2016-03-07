@@ -35,6 +35,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.saveButton = new System.Windows.Forms.Button();
             this.deckName = new System.Windows.Forms.TextBox();
+            this.loadButton = new System.Windows.Forms.Button();
+            this.openDeck = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // listBox1
@@ -65,7 +67,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(287, 218);
+            this.button2.Location = new System.Drawing.Point(287, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 3;
@@ -83,7 +85,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(287, 286);
+            this.saveButton.Location = new System.Drawing.Point(287, 241);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 5;
@@ -99,11 +101,26 @@
             this.deckName.TabIndex = 6;
             this.deckName.Text = "Deck Name Here";
             // 
+            // loadButton
+            // 
+            this.loadButton.Location = new System.Drawing.Point(287, 288);
+            this.loadButton.Name = "loadButton";
+            this.loadButton.Size = new System.Drawing.Size(75, 23);
+            this.loadButton.TabIndex = 7;
+            this.loadButton.Text = "Load";
+            this.loadButton.UseVisualStyleBackColor = true;
+            this.loadButton.Click += new System.EventHandler(this.loadButton_Click);
+            // 
+            // openDeck
+            // 
+            this.openDeck.FileName = "Select a deck";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(649, 480);
+            this.Controls.Add(this.loadButton);
             this.Controls.Add(this.deckName);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.textBox1);
@@ -127,6 +144,8 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.TextBox deckName;
+        private System.Windows.Forms.Button loadButton;
+        private System.Windows.Forms.OpenFileDialog openDeck;
     }
 }
 
