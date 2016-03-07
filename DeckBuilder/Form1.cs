@@ -23,7 +23,6 @@ namespace DeckBuilder
         {
             InitializeComponent();
             addCards();
-            loadDeck("mardu");
         }
 
         public void addCards()
@@ -31,17 +30,6 @@ namespace DeckBuilder
             foreach(var card in cards)
             {
                 listBox1.Items.Add(card.Name);
-            }
-        }
-
-        public void loadDeck(string deckName)
-        {
-            listBox2.Items.Clear();
-            string deck = File.ReadAllText("./decks/" + deckName + ".json");
-            dynamic deckList = JsonConvert.DeserializeObject(deck);
-            foreach(var card in deckList)
-            {
-                listBox2.Items.Add(card);
             }
         }
 
@@ -71,20 +59,11 @@ namespace DeckBuilder
                 {
                     test.Add(item);
                 }
-                File.WriteAllText("./decks/" + deckName.Text.ToLower() + ".json", test.ToString());
+                File.WriteAllText("./decks/" + deckName.Text + ".json", test.ToString());
             } catch {
                 Directory.CreateDirectory("./decks");
-                File.Create("./decks/" + deckName.Text.ToLower() + ".json").Close();
+                File.Create("./decks/" + deckName.Text + ".json").Close();
             }
-        }
-
-        private void loadButton_Click(object sender, EventArgs e)
-        {
-            openDeck.InitialDirectory = Directory.GetCurrentDirectory();          
-            if(openDeck.ShowDialog() == DialogResult.OK)
-            {
-                loadDeck(openDeck.SafeFileName.Split('.')[0]);
-            }            
         }
     }
 }
